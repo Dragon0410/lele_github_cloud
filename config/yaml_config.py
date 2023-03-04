@@ -16,6 +16,16 @@ def join(loader, node):
 yaml.add_constructor('!join', join)
 
 
+def write_yaml_file(file_path, data):
+    """
+    :Author: 93207
+    :CrateTime: 2023/3/4 19:18
+    """
+    with open(file_path, 'w', encoding='utf-8') as f:
+        yaml.dump(data, f)
+    return True
+
+
 def read_yaml_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         data = yaml.unsafe_load(f)
