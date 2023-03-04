@@ -1,0 +1,10 @@
+MC_SERVER:
+    login_info:
+        "hostname": &hostname 127.0.0.1
+        "port": 22
+        "username": &name "wanglele"
+        "password": &pass "CaiHongZhao@"
+
+    host: *hostname
+
+    host1: !join [ "less", *pass ]
