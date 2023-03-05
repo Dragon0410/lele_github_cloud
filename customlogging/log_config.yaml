@@ -1,0 +1,28 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+    default:
+        format: "[%(asctime)s] %(filename)s %(lineno)s %(levelname)s: %(message)s"
+        plain: "[%(asctime)s]: %(message)s"
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: ERROR
+        formatter: default
+    file:
+        class: logging.handlers.TimedRotatingFileHandler
+        level: DEBUG
+        filename: "./logs/log.log"
+        formatter: default
+        when: D
+        interval: 1
+        backupCount: 3
+
+
+loggers:
+    process_logger:
+        handlers:
+            - console
+            - file
+        level: DEBUG
+        propagate: true
