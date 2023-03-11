@@ -1,18 +1,18 @@
 version: 1
-disable_existing_loggers: false
+disable_existing_loggers: true
 formatters:
     default:
-        format: "[%(asctime)s] %(filename)s %(lineno)s %(levelname)s: %(message)s"
+        format: "[%(asctime)s] %(filename)s:%(lineno)s %(levelname)s: %(message)s"
         plain: "[%(asctime)s]: %(message)s"
 handlers:
     console:
         class: logging.StreamHandler
-        level: ERROR
+        level: INFO
         formatter: default
     file:
         class: logging.handlers.TimedRotatingFileHandler
         level: DEBUG
-        filename: "./logs/log.log"
+        filename: "../logs"
         formatter: default
         when: D
         interval: 1
